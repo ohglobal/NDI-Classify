@@ -1,0 +1,4 @@
+Windows:
+pyinstaller --paths=.\ndi --hidden-import=tensorflow.python.keras.engine.base_layer_v1 --hidden-import=tensorflow.python.ops.numpy_ops NDI_Classify.py
+
+macOS:
