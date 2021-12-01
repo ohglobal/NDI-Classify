@@ -59,10 +59,21 @@ NDIsources = find.get_sources()
 
 # Load the model
 model_name = "keras_model.h5"
-use_default_model = str(input("Use default model name: keras_model.h5 ? [y/n] \n"))
-if(use_default_model == "n"):
-	model_name = str(input("Enter Model Name"))
-model = load_model(model_name)
+#use_default_model = str(input("Use adjacent default model named keras_model.h5 (Windows Only)? [y/n] \n"))
+#if(use_default_model == "n"):
+#	model_name = str(input("Enter Model Full Path and Name"))
+#	os.path.expanduser(model_name)
+
+model_name = str(input("Drag model here and hit ENTER" + '\n'))
+path = os.path.join(model_name)
+fixed_path = (path.replace(os.sep, '/')).replace('"',"")
+print("Attempting to load model from:")
+print(fixed_path)
+print()
+
+model = load_model(fixed_path)
+print("Success!")
+print()
 
 # Create the array of the right shape to feed into the keras model
 # The 'length' or number of images you can put into the array is
