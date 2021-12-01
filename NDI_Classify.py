@@ -68,11 +68,12 @@ model_name = str(input("Drag model here and hit ENTER" + '\n'))
 path = os.path.join(model_name)
 fixed_path = (path.replace(os.sep, '/')).replace('"',"")
 rel_path = os.path.relpath(fixed_path, start = os.curdir)
+rel_path = rel_path.rstrip()
 print("Attempting to load model from:")
 print(rel_path)
 print()
 
-model = load_model(rel_path)
+model = tf.keras.models.load_model(rel_path)
 print("Success!")
 print()
 
