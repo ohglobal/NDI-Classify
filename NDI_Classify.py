@@ -67,11 +67,12 @@ model_name = "keras_model.h5"
 model_name = str(input("Drag model here and hit ENTER" + '\n'))
 path = os.path.join(model_name)
 fixed_path = (path.replace(os.sep, '/')).replace('"',"")
+rel_path = os.path.relpath(fixed_path, start = os.curdir)
 print("Attempting to load model from:")
-print(fixed_path)
+print(rel_path)
 print()
 
-model = load_model(fixed_path)
+model = load_model(rel_path)
 print("Success!")
 print()
 
