@@ -2,4 +2,4 @@ Windows:
 pyinstaller --paths=.\ndi --hidden-import=tensorflow.python.keras.engine.base_layer_v1 --hidden-import=tensorflow.python.ops.numpy_ops NDI_Classify.py
 
 macOS:
-pyinstaller --paths="/Users/hackintosh/Documents/GitHub/NDI-Classify/ndi" --hidden-import=tensorflow.python.keras.engine.base_layer_v1 --hidden-import=tensorflow.python.ops.numpy_ops --hidden-import=keras.api --hidden-import=keras.api._v2 --hidden-import=keras.engine.base_layer_v1 NDI_Classify.py
+pyinstaller --paths="/Users/hackintosh/Documents/GitHub/NDI-Classify/ndi" --hidden-import=tensorflow.python.keras.engine.base_layer_v1 --hidden-import=tensorflow.python.ops.numpy_ops --hidden-import=keras.api --hidden-import=keras.api._v2 --hidden-import=keras.engine.base_layer_v1 --add-data="bin/libndi.dylib:bin" --onefile --windowed NDI_Classify.py
